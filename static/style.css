@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #020024, #090979, #00d4ff);
+    color: white;
+    min-height: 100vh;
+}
+
+/* HEADER */
+.header {
+    text-align: center;
+    padding: 25px;
+    background: rgba(0, 0, 0, 0.35);
+    border-bottom: 2px solid #00eaff;
+    backdrop-filter: blur(6px);
+}
+
+.header h1 {
+    font-size: 38px;
+    color: #00eaff;
+    letter-spacing: 1px;
+}
+
+.header p {
+    color: #bdefff;
+    margin-top: 5px;
+}
+
+/* MAIN DASHBOARD */
+.dashboard {
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+}
+
+/* CARD BASE STYLE */
+.card {
+    background: rgba(255, 255, 255, 0.14);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 0 25px rgba(0,0,50,0.5);
+    text-align: center;
+    width: 90%;
+    max-width: 900px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* VIDEO CARD */
+.video-card img {
+    width: 100%;
+    border-radius: 15px;
+    margin-top: 15px;
+    border: 3px solid #00eaff;
+}
+
+/* STATS GRID */
+.stats-grid {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.stat-box {
+    width: 260px;
+}
+
+.stat-value {
+    font-size: 55px;
+    font-weight: bold;
+    display: block;
+    margin-top: 15px;
+}
+
+/* ICONS */
+.icon {
+    font-size: 40px;
+    margin-bottom: 8px;
+}
+
+/* GLOWS */
+.green-glow { color: #00ffb3; text-shadow: 0 0 15px #00ffb3; }
+.yellow-glow { color: #ffee58; text-shadow: 0 0 15px #ffee58; }
+.red-glow { color: #ff5252; text-shadow: 0 0 15px #ff5252; }
+
+/* SIGNAL BADGE */
+.signal-badge {
+    padding: 8px 25px;
+    border-radius: 10px;
+    font-size: 40px;
+    color: white;
+}
+
+/* FOOTER */
+.footer {
+    margin-top: 30px;
+    text-align: center;
+    padding: 20px;
+    color: #d7eeff;
+    background: rgba(0,0,0,0.4);
+}
+
+/* RESPONSIVE */
+@media(max-width: 768px) {
+    .stat-box {
+        width: 45%;
+    }
+
+    .video-card, .analytics-card {
+        width: 100%;
+    }
+}

@@ -1,0 +1,7 @@
+# Ignore large files
+yolov3.weights
+*.exe
+
+# Ignore folders
+All Software/
+

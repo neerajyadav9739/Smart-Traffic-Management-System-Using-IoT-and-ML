@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Traffic Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<header class="header">
+    <h1>🚦 Smart Traffic Management Dashboard</h1>
+    <p>AI Powered ML + IoT Real-Time Traffic Monitoring</p>
+</header>
+
+<div class="dashboard">
+
+    <!-- LIVE VIDEO -->
+    <section class="card video-card">
+        <h2>Live Traffic Camera</h2>
+        <img src="/video" alt="Live Stream">
+    </section>
+
+    <!-- STATS GRID -->
+    <section class="stats-grid">
+
+        <div class="card stat-box">
+            <div class="icon green-glow">🚗</div>
+            <h3>Vehicle Count</h3>
+            <span id="cars" class="stat-value">0</span>
+        </div>
+
+        <div class="card stat-box">
+            <div class="icon yellow-glow">⏱</div>
+            <h3>Signal Timer</h3>
+            <span id="timer" class="stat-value">0</span>
+        </div>
+
+        <div class="card stat-box">
+            <div class="icon red-glow">💡</div>
+            <h3>Current Signal</h3>
+            <span id="signal" class="stat-value signal-badge">R</span>
+        </div>
+
+    </section>
+
+    <!-- FUTURE EXPANSION -->
+    <section class="card analytics-card">
+        <h2>Traffic Analytics (Coming Soon)</h2>
+        <p>Speed Estimation | Density Analysis | Flow Optimization</p>
+    </section>
+
+</div>
+
+<footer class="footer">
+    <p>Developed by <b>Vasikur Rahman & Neeraj Kumar</b> • Smart Traffic System • 2026</p>
+</footer>
+
+<script>
+    function updateData() {
+        fetch('/data')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("cars").innerHTML = data.cars;
+            document.getElementById("timer").innerHTML = data.timer;
+            const signal = document.getElementById("signal");
+
+            signal.innerHTML = data.signal;
+
+            // Signal color animation
+            if (data.signal === 'R') {
+                signal.style.background = "red";
+            } else if (data.signal === 'Y') {
+                signal.style.background = "yellow";
+                signal.style.color = "black";
+            } else {
+                signal.style.background = "lime";
+            }
+        });
+    }
+    setInterval(updateData, 1000);
+</script>
+
+</body>
+</html>
